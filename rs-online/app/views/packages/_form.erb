@@ -1,0 +1,40 @@
+<%# TODO: usar render para utilizar form em new e edit %>
+<%= f.error_messages %>
+<table width="95%" border="0" cellpadding="5">
+  <tr>
+    <td>
+      <b><%= f.label :description %> (Optional): </b><br/>
+      <%= f.text_field :description, :class => "text ui-widget-content ui-corner-all",
+        :size => 40 %>
+    </td>
+    <td>
+      <%# TODO: verificar param do select para por ordem na label e o nome do select. %>
+      <b><%= f.label :priority %> </b><br/>
+      <%= select "level", "id", @priority %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= f.label :url_source %></b><br/>
+      <%= f.text_field :url_source, :class => "text ui-widget ui-corner-all",
+        :size => 50 %>
+    </td>
+    <td>
+      <b><%= f.label :pass_phrase %></b><br/>
+      <%= f.text_field :pass_phrase, :class => "text ui-widget ui-corner-all",
+        :size => 40 %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <b><%= f.label :s_links, "Links" %> </b><br/>
+      <%= f.text_area :s_links, :cols => 100, :rows => 12, :class => "area-wide ui-corner-all" %>
+    </td>
+  </tr>
+  <tr>
+    <td align="right" colspan="2">
+      <input type="reset" value="Clear" class="button ui-state-default ui-corner-all"/>
+      <%= f.submit 'Create', :class => "button ui-state-default ui-corner-all" %>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,345 @@
+/* 
+    Document   : style
+    Created on : 01/02/2010, 13:22:00
+    Author     : madmac
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   DONE customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background: #242323;
+	text-align: justify;
+	font: 13px Arial, Helvetica, sans-serif;
+	color: #444444;
+}
+
+h1, h2, h3 {
+	margin-top: 0px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+h1 {
+	font-size: 2.4em;
+}
+
+h2 {
+	font-size: 1.8em;
+}
+
+h3 {
+	font-size: 1.4em;
+}
+
+p, ol, ul {
+	/*margin-bottom: 1.8em;*/
+	line-height: 140%;
+}
+
+a {
+	color: #000000;
+   text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+   cursor: pointer;
+   color: #A02C2C;
+	/*color: #FF0000;*/
+}
+
+a img {
+	border: none;
+}
+
+#wrapper {
+	width: 96%;
+	margin: 0 auto;
+	border: 10px solid #FFFFFF;
+}
+
+/* Header */
+
+#header {
+	width: 100%;
+	height: 100px;
+	margin: 0px auto;
+}
+
+#header a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+/* Logo */
+
+#logo {
+	float: left;
+	padding-left: 20px;
+}
+
+#logo h1, #logo p {
+	margin: 0px;
+	line-height: normal;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+#logo h1 {
+	padding: 25px 0px 0px 0px;
+}
+
+/* Menu */
+
+#menu {
+	float: right;
+}
+
+#menu ul {
+	margin: 0px;
+	padding: 49px 0px 0px 0px;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	float: left;
+	margin: 0px;
+}
+
+#menu a {
+	display: block;
+	width: auto;
+	padding: 6px 20px;
+}
+
+#menu a:hover {
+	text-decoration: underline;
+}
+
+#menu .active {
+	background: #404040;
+}
+
+#menu .active a {
+	background: url(../images/img02.jpg) no-repeat 100% -40px;
+}
+
+/* Page */
+
+#page {
+	width: 100%;
+	margin: 0px auto;
+	padding: 10px 0px 0px 0px;
+	background: #FFFFFF;
+}
+
+#header-pic {
+	/*background: url(images/img05.jpg) no-repeat left top;*/
+	width: 900px;
+	height: 210px;
+}
+
+/* Content */
+
+#content {
+	float: right;
+	width: 75%;
+}
+
+.post {
+	margin: 0px 0px 30px 0px;
+}
+
+.post .title {
+	margin: 0px;
+	background: #A02C2C url('../images/img02.jpg') no-repeat left;
+	padding: 7px 25px;
+	font-size: 1.4em;
+}
+
+.post .title h1 {
+}
+
+.post .entry {
+	padding: 0 20px;
+}
+
+.post .meta {
+	font-weight: bold;
+	padding-left: 20px;
+}
+
+.post .byline {
+	margin: 0px;
+	padding-left: 20px;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: left;
+	width: 270px;
+}
+
+#sidebar-bgtop {
+}
+
+#sidebar-bgbtm {
+/*	background: url(../images/img03.jpg) no-repeat left bottom;*/
+}
+
+#sidebar-content {
+/*	background: url(../images/img01.jpg) repeat-y left top;*/
+   border: 1px #aaa solid;
+}
+
+#sidebar ul {
+	padding: 0px 0 4px 0;
+	margin: 0px;
+	list-style: none;
+}
+
+#sidebar li li {
+	margin-left: 10px;
+	margin-right: 5px;
+	line-height: 30px;
+	padding-left: 18px;
+	border-bottom: 1px dashed #BDBDBD;
+}
+
+#sidebar li li.packages_new {
+   background: url(../images/packages/box__plus.png) no-repeat left;
+}
+
+#sidebar li li.packages_list {
+   background: url(../images/packages/box__arrow.png) no-repeat left;
+}
+
+#sidebar li li.histories_index {
+   background: url(../images/report.png) no-repeat left;
+}
+
+#sidebar li li:hover {
+   background-color: #F2F2F2;
+   color: #FFFFFF;
+}
+
+#sidebar li ul {
+	margin-bottom: 1.8em;
+	list-style: none;
+}
+
+#sidebar h2 {
+	background: #A02C2C url(../images/img02.jpg) no-repeat left;
+   margin: 2px 2px 2px 2px;
+	padding: 7px 25px;
+	font-size: 1.4em;
+}
+
+#sidebar a {
+	text-decoration: none;
+}
+
+#sidebar a:hover {
+	text-decoration: underline;
+}
+
+/* Search */
+
+#search {
+}
+
+#search form {
+	margin-bottom: 1.8em;
+	padding: 0px;
+}
+
+#search fieldset {
+	margin-left: 10px;
+	padding: 0px;
+	border: none;
+}
+
+#search #s {
+	width: 160px;
+}
+
+/* Footer */
+
+#footer {
+	clear: both;
+	width: 900px;
+	height: 50px;
+	margin: 0px auto 30px auto;
+	color: #FFFFFF;
+}
+
+#footer p {
+	margin: 0px;
+	padding: 19px 0px 0px 0px;
+	text-align: center;
+	line-height: normal;
+	font-size: smaller;
+}
+
+#footer a {
+	color: #FFFFFF;
+}
+
+#footer a:hover {
+	background-color: #A02C2C;
+   border: 1px #A02C2C solid;
+   -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
+
+/* Download CSS */
+.area-wide {
+   border: 1px #aaa solid;
+   font-size: 9.5pt;
+   margin-bottom:3px; padding: .4em;
+}
+
+#def_search {
+   background: url(../images/search.png) no-repeat center;
+}
+
+.def_button {
+   border: 1px solid #aaa;
+   width: 10%;
+   padding: 1% 1% 1% 1%;
+}
+
+.sPacote {
+   border: 1px solid #aaa;
+   width: 10%;
+   padding: 1% 1% 1% 1%;
+}
+
+/*.sPacote:hover {
+   background-color: #FFD5D5;
+   cursor: pointer;
+}*/
+
+/*.text {
+   border: 1px solid #aaa;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+}*/
+
+.select-box {
+   width: 250px;
+}
+
+input.text { margin-bottom:3px; margin-top:3px; padding: .4em; border: 1px #aaa solid; }
+input.smallText { margin-bottom:3px; width:18%; padding: .4em; }
+select.text { margin-bottom:3px; width:70%; padding: .4em; }
+
+.post table select { margin-bottom:3px; width:70%; padding: .4em; }

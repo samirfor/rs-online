@@ -1,0 +1,27 @@
+<%= javascript_include_tag "histories/index" %>
+<h1 class="title">RS-Online History - Downloads Log</h1>
+<br/>
+<div id="demo_jui"><!-- begin : demo_jui -->
+  <table id="example" border="0" cellpadding="0" class="display">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Date</th>
+        <th>Message</th>
+        <th>Process</th>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+    <% @histories.each do |history| %>
+      <tr>
+        <td><%=h history.id %></td>
+        <td><%=h history.created_at %></td>
+        <td><%=h history.message %></td>
+        <td><%=h history.process %></td>
+        <td><%= link_to image_tag("package_delete.png"), history, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div><!-- end : demo_jui -->
