@@ -1,0 +1,28 @@
+<h1>Editing package</h1>
+
+<% form_for(@package) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment %>
+  </p>
+  <p>
+    <%= f.label :pass_phrase %><br />
+    <%= f.text_field :pass_phrase %>
+  </p>
+  <p>
+    <%= f.label :url_source %><br />
+    <%= f.text_field :url_source %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @package %> |
+<%= link_to 'Back', packages_path %>

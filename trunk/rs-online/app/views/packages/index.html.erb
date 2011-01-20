@@ -1,0 +1,42 @@
+<%= javascript_include_tag "packages/index" %>
+<h1 class="title">Listing packages</h1>
+<br/>
+<div id="demo_jui"><!-- begin : demo_jui -->
+<table id="example" border="0" cellpadding="0" class="display">
+  <thead>
+  <tr>
+    <th>Description</th>
+    <th>Complete?</th>
+    <th>Problem?</th>
+    <th>Pass phrase</th>    
+    <td colspan="2"></td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @packages.each do |package| %>
+  <tr>
+    <td>
+      <%= image_tag("packages/box.png") %> <%=link_to package.description, package %>
+      <%= link_to image_tag("chain.png", :style => "float: right;", :title => "Url Source"), package.url_source %>
+    </td>
+    <td>
+      <% if package.completed? %>
+        <%=  image_tag("ok.png", :title => "Package done.", :class => "poshytip") %>
+      <% else %>
+        <%=  image_tag("packages/have_some_coffe.png", :title => "Not yet. Have some coffe!", :class => "poshytip") %>
+      <% end %>
+    </td>
+    <td>
+      <% if package.problem? %>
+        <%=  image_tag("packages/box__exclamation.png", :title => "Houston, we have a problem!", :class => "poshytip") %>
+      <% else %>
+        <%= image_tag("packages/box_label.png", :title => "Nope! Onkey donkey with this package.", :class => "poshytip") %>
+      <% end %></td>
+    <td><%=h package.pass_phrase %></td>
+    <td><%= link_to image_tag("packages/box__pencil.png", :title => "Edit", :class => "poshytip"), edit_package_path(package) %></td>
+    <td><%= link_to image_tag("packages/box__minus.png", :title => "Delete", :class => "poshytip"), package, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+</div><!-- end : demo_jui -->
