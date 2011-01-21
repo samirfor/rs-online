@@ -1,38 +1,12 @@
 <%= javascript_include_tag "packages/show" %>
+<%= stylesheet_link_tag "packages/show" %>
 
 <h1 class="title"><%= h @package.description %></h1>
+<div id="notice"></div>
 <br/>
-
-<div id="demo_jui"><!-- begin : demo_jui -->
-  <table id="example" border="0" cellpadding="0" class="display">
-    <thead>
-      <tr>
-        <th>Url</th>
-        <th>Size</th>
-        <th>Begin</th>
-        <th>End</th>
-        <th>Interval</th>
-        <th>Completed?</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @links.each do |link| %>
-        <tr>
-  <%# TODO: por apenas o filename e na chain.png o link real. %>
-          <td><%= image_tag("chain.png") %> <%= h link.url %></td>
-          <td><%= h link.size %></td>
-          <td><%= h link.date_started %></td>
-          <td><%= h link.date_finished %></td>
-          <td><%= h link.interval %></td>
-          <td><%= h link.completed? %></td>
-          <td><%#= h link.status.status %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div><!-- end : demo_jui -->
-<br/>
+<div id="package_links">
+  <%= render :partial => 'package_links' %>
+</div>
 
 <div class="ui-widget-content ui-corner-all" style="padding: 0.4em;">
   <div><button id="toggler">Details</button></div>
@@ -53,44 +27,12 @@
 <a href="#" id="append-link">Append Link</a>
 
 <%#*append link to package%>
-<style type="text/css">
-  label, input { display:block; }
-  fieldset { padding:0; border:0; margin-top:25px; }
-  .ui-dialog .ui-state-error { padding: .3em; }
-</style>
-
-<script type="text/javascript">
-  $(function(){
-    var link = $("#link");
-    
-    $("#dialog-form").dialog({
-      autoOpen: false,
-			height: 200,
-			width: 400,
-			modal: false,
-         buttons: {
-           'Append': function() {
-             $("#result").append("<p> [<%= @package.id %>] " + link.val() + "</p>");
-             $(this).dialog("close");
-           }
-         }
-    });
-
-    // abre o dialogo.
-    $('#append-link').click(function() {
-      $('#dialog-form').dialog('open');
-    });
-
-  });
-</script>
 <div id="dialog-form" title="Append Link to Package">
-  <form>
+  <% form_tag url_for(:action => "append_link"), :id => "app-link", :remote => true do %>
     <fieldset>
       <label for="link">Link (url)</label>
-      <input type="text" id="link" name="link" size="40" class="text ui-widget ui-corner-all"/>
+      <%= text_field 'link', 'url', :size => 40, :class => "text ui-widget ui-corner-all" %>
+      <%= hidden_field_tag 'package_id', @package.id %>
     </fieldset>
-  </form>
-</div>
-<div id="result">
-  
+  <% end %>
 </div>

@@ -1,0 +1,11 @@
+/* 
+    Document   : show
+    Created on : 20/01/2011, 21:43:54
+    Author     : atila
+    Description:
+        Purpose of the stylesheet follows.
+*/
+#dialog-form label, #dialog-form input { display:block; }
+#dialog-form fieldset { padding:0; border:0; margin-top:25px; }
+.ui-dialog .ui-state-error { padding: .3em; }
+#toolbar {padding: 10px 4px;}
