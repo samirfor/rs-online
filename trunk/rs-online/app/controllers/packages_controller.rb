@@ -39,7 +39,8 @@ class PackagesController < ApplicationController
 
   # GET /packages/1/edit
   def edit
-    @package = Package.find(params[:id])
+    @package = Package.find(params[:id], :joins => :priority)
+    @priority = Priority.find(:all)
   end
 
   # POST /packages
@@ -56,7 +57,7 @@ class PackagesController < ApplicationController
     @package.s_links.each { |linha| links.push linha.chomp }
     respond_to do |format|
       if @package.save
-        # TODO: verificar se todos os links foram salvos corretamente, se não mostrar erro!
+        # _TODO_: verificar se todos os links foram salvos corretamente, se não mostrar erro!
         links.each do |url|
           Link.create(:package => @package, :url => url)
         end
@@ -110,6 +111,7 @@ class PackagesController < ApplicationController
     # renova a busca para atualizar lista de links.
     @links = Link.find(:all, :conditions => ["package_id = ?", params[:package_id]])
 
+    flash[:notice] = "Link was successfully appended.<br/>" + url[:url]
     redirect_to :action => 'show', :id => params[:package_id]
   end
 end

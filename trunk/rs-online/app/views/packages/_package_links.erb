@@ -14,8 +14,8 @@
     <tbody>
       <% @links.each do |link| %>
         <tr>
-  <%# TODO: por apenas o filename e na chain.png o link real. %>
-          <td><%= image_tag("chain.png") %> <%= h link.url %></td>
+          <%# TODO: por apenas o filename e na chain.png o link real. %>
+          <td><%= link_to image_tag("chain.png"), link.url %> <%= shorten link.url %></td>
           <td><%= h link.size %></td>
           <td><%= h link.date_started %></td>
           <td><%= h link.date_finished %></td>
