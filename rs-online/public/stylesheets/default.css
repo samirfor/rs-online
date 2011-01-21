@@ -15,7 +15,6 @@ body {
 	margin: 0px;
 	padding: 0px;
 	background: #242323;
-	text-align: justify;
 	font: 13px Arial, Helvetica, sans-serif;
 	color: #444444;
 }
@@ -160,9 +159,9 @@ a img {
 
 .post .title {
 	margin: 0px;
-	background: #A02C2C url('../images/img02.jpg') no-repeat left;
+	background: url('../images/packages/box.png') no-repeat left;
 	padding: 7px 25px;
-	font-size: 1.4em;
+	font-size: 1.2em;
 }
 
 .post .title h1 {
@@ -241,11 +240,12 @@ a img {
 	background: #A02C2C url(../images/img02.jpg) no-repeat left;
    margin: 2px 2px 2px 2px;
 	padding: 7px 25px;
-	font-size: 1.4em;
+	font-size: 1.2em;
 }
 
 #sidebar a {
 	text-decoration: none;
+   width: 100%;
 }
 
 #sidebar a:hover {

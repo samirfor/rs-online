@@ -12,6 +12,12 @@ $(function(){
       bgImageFrameSize: 9,
       offsetX: -25,
       showTimeout: 1,
-      hideTimeout: 1
+      hideTimeout: 1,
+      followCursor: true
+   });
+
+   $("#flash-msg").click(function() {
+      $("#flash-msg").hide('blind',null,600);
+		return false;
    });
 });

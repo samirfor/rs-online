@@ -50,7 +50,17 @@ Released   : 20081230
 <div id="page">
 	<!--<div id="header-pic"></div>-->
 	<div id="content">
-     <p style="color: green"><%= flash[:notice] %></p>
+     <% if flash[:notice] %>
+     <div id="flash-msg" class="ui-widget">
+       <div class="ui-state-highlight ui-corner-all poshytip"
+            style="margin-bottom: 6px; padding: 0pt 0.3em;cursor: pointer;" title="Click to Close!">
+         <p>
+           <span class="ui-icon ui-icon-info" style="margin-top: 2px; padding: 0pt 0.3em;"></span>
+           <%= flash[:notice] %>
+         </p>
+       </div>
+     </div>
+     <% end %>
      
       <div class="post">
         <%= yield %>
@@ -74,7 +84,7 @@ Released   : 20081230
 			<div id="sidebar-bgbtm" class="ui-corner-all">
 			<ul>
 				<li id="search">
-					<h2 class="ui-corner-top">Search</h2>
+					<h2 class="ui-widget-header ui-corner-top">Search</h2>
                <%# TODO: fazer busca que funcione! %>
 					<form method="get" action="">
 						<fieldset>
@@ -84,7 +94,7 @@ Released   : 20081230
 					</form>
 				</li>
 				<li>
-					<h2>Packages</h2>
+              <h2 class="ui-widget-header">Packages</h2>
 					<ul>
                  <li class="packages_new">
                     <%= link_to "New Package", :controller => "packages",
@@ -94,7 +104,7 @@ Released   : 20081230
 					</ul>
 				</li>
 				<li>
-					<h2>History</h2>
+					<h2 class="ui-widget-header">History</h2>
 					<ul>
                   <li class="histories_index"><%= link_to "Downloads Log", :controller => "histories" %></li>
 					</ul>
