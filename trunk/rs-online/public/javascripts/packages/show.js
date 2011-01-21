@@ -20,4 +20,32 @@ $(function(){
    $("#toggler").click(function() {
       $("#details").toggle("blind",null,500);
    });
+
+   /* append link to a package via ajax */
+   // begin
+   var link = $("#link_url");
+
+   $("#dialog-form").dialog({
+      autoOpen: false,
+      height: 200,
+      width: 400,
+      modal: false,
+      buttons: {
+         Cancel: function() {
+            $(this).dialog('close');
+         },
+         'Append': function() {
+            if (link.val() != null && link.val() != "") {
+               $("#app-link").submit();
+            }
+            $(this).dialog("close");
+         }
+      }
+   });
+
+   // abre o dialogo.
+   $('#append-link').click(function() {
+      $('#dialog-form').dialog('open');
+   });
+   // end
 });

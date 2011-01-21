@@ -98,4 +98,18 @@ class PackagesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  # append link to a package
+  def append_link
+    logger.debug "chamou a função?"
+    url = params[:link]
+    @link = Link.new()
+    @link.url = url[:url]
+    @link.package = Package.find(params[:package_id])
+    @link.save()
+    # renova a busca para atualizar lista de links.
+    @links = Link.find(:all, :conditions => ["package_id = ?", params[:package_id]])
+
+    redirect_to :action => 'show', :id => params[:package_id]
+  end
 end

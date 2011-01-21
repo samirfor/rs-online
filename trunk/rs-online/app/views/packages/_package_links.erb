@@ -1,0 +1,30 @@
+<div id="demo_jui"><!-- begin : demo_jui -->
+  <table id="example" border="0" cellpadding="0" class="display">
+    <thead>
+      <tr>
+        <th>Url</th>
+        <th>Size</th>
+        <th>Begin</th>
+        <th>End</th>
+        <th>Interval</th>
+        <th>Completed?</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @links.each do |link| %>
+        <tr>
+  <%# TODO: por apenas o filename e na chain.png o link real. %>
+          <td><%= image_tag("chain.png") %> <%= h link.url %></td>
+          <td><%= h link.size %></td>
+          <td><%= h link.date_started %></td>
+          <td><%= h link.date_finished %></td>
+          <td><%= h link.interval %></td>
+          <td><%= h link.completed? %></td>
+          <td><%#= h link.status.status %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div><!-- end : demo_jui -->
+<br/>
