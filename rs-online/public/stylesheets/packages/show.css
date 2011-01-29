@@ -5,7 +5,7 @@
     Description:
         Purpose of the stylesheet follows.
 */
-#dialog-form label, #dialog-form input { display:block; }
-#dialog-form fieldset { padding:0; border:0; margin-top:25px; }
+.package-dialog label, .package-dialog input { display:block; }
+.package-dialog fieldset { padding:0; border:0; margin-top:25px; }
 .ui-dialog .ui-state-error { padding: .3em; }
 #toolbar {padding: 10px 4px;}

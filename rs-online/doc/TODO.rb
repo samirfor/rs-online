@@ -10,3 +10,4 @@
 # [         ] | TODO: Criar um _TODO_ que preste! LOL.
 # [         ] | TODO: ao mostrar links (url), não permitir auto links (exceto quando necessário).
 # [         ] | TODO: verificar se todos os links foram salvos corretamente, se não mostrar erro!
+# [         ] | _DONE_: criar dialog com todos os links em textarea, para melhor copiar.

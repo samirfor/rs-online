@@ -1,6 +1,16 @@
 <%= javascript_include_tag "packages/show" %>
 <%= stylesheet_link_tag "packages/show" %>
 
+<%# show raw links : begin %>
+<div id="dialog-raw-links" class="package-dialog" title="Raw Links">
+  <fieldset>
+    <label for="raw-links">Raw Links</label>
+    <%= text_area_tag 'raw_links', to_raw_links(@links), :cols => 65, :rows => 6,
+      :class => "area-wide ui-corner-all" %>
+  </fieldset>
+</div>
+<%# show raw links : end %>
+
 <div class="ui-widget-header ui-corner-all" style="padding: 0pt 10px;">
   <p class="title"><%= h @package.description %></p>
 </div>
@@ -25,10 +35,12 @@
 <br/>
 <%= link_to 'Edit Package', edit_package_path(@package) %> |
 <%= link_to 'Back to List', packages_path %> |
-<a href="#" id="append-link">Append Link</a>
+<a href="#" id="append-link">Append Link</a> |
+<a href="#" id="show-raw-links">Raw Links</a>
+
 
 <%#*append link to package%>
-<div id="dialog-form" title="Append Link to Package">
+<div id="dialog-form" class="package-dialog" title="Append Link to Package">
   <% form_tag url_for(:action => "append_link"), :id => "app-link", :remote => true do %>
     <fieldset>
       <label for="link">Link (url)</label>
