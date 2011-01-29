@@ -42,10 +42,29 @@ $(function(){
          }
       }
    });
-
    // abre o dialogo.
    $('#append-link').click(function() {
       $('#dialog-form').dialog('open');
+   });
+   // end
+
+   /* show raw links in a textarea */
+   // begin
+   $("#dialog-raw-links").dialog({
+      autoOpen: false,
+      height: 300,
+      width: 600,
+      modal: false,
+      buttons: {
+         Ok: function() {
+            $( this ).dialog( "close" );
+         }
+      }
+   });
+   // abre o dialogo
+   $("#show-raw-links").click(function(){
+      $("#dialog-raw-links").dialog('open');
+      $("#raw_links").select();
    });
    // end
 });
