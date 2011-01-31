@@ -27,7 +27,7 @@ Released   : 20081230
 </head>
 <body>
 
-<div id="wrapper">
+<div id="wrapper" class="ui-widget ui-corner-all">
 
 <div id="header" class="ui-widget ui-corner-all">
 	<div id="logo">
@@ -37,11 +37,11 @@ Released   : 20081230
 	<!-- end #logo -->
 	<div id="menu">
 		<ul>
-			<li class="active"><a href="index.rhtml">Home</a></li>
-			<li><a href="#">About Us</a></li>
-			<li><a href="#">Products</a></li>
-			<li><a href="#">Services</a></li>
-			<li><a href="#">Contact Us</a></li>
+         <li class="ui-corner-all"><a href="index.rhtml">Home</a></li>
+			<li class="ui-corner-all"><a href="#">About Us</a></li>
+			<li class="ui-corner-all"><a href="#">Products</a></li>
+			<li class="ui-corner-all"><a href="#">Services</a></li>
+         <li class="ui-corner-all" style="margin-right: 6px;"><a href="#">Contact Us</a></li>
 		</ul>
 	</div>
 	<!-- end #menu -->
@@ -55,8 +55,8 @@ Released   : 20081230
        <div class="ui-state-highlight ui-corner-all poshytip"
             style="margin-bottom: 6px; padding: 0pt 0.3em;cursor: pointer;" title="Click to Close!">
          <p>
-           <span class="ui-icon ui-icon-info" style="margin-top: 2px; padding: 0pt 0.3em;"></span>
-           <%= flash[:notice] %>
+           <span class="ui-icon ui-icon-info" style="margin-top: 2px; padding: 0pt 0.2em;display: inline-block;"></span>
+           <span><%= flash[:notice] %></span>
          </p>
        </div>
      </div>
@@ -106,7 +106,7 @@ Released   : 20081230
 				<li>
 					<h2 class="ui-widget-header">History</h2>
 					<ul>
-                  <li class="histories_index"><%= link_to "Downloads Log", :controller => "histories" %></li>
+                  <li class="histories_index"><%= link_to "Application Log", log_url %></li>
 					</ul>
 				</li>
 			</ul>
@@ -121,7 +121,8 @@ Released   : 20081230
 </div>
 
 <div id="footer">
-  <p>&copy; 2010. All Rights Reserved. Design by <a href="http://twitter.com/atilacamurca">atilacamurca</a>. DownloadRS is powered by eRuby.</p>
+  <p>&copy; 2010. All Rights Reserved. Design by <a href="http://twitter.com/atilacamurca">@atilacamurca</a>.
+    RS-Online is powered by <a href="http://www.rubyonrails.org/">Ruby on Rails</a>.</p>
 </div>
 <!-- end #footer -->
 </body>

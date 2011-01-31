@@ -28,7 +28,7 @@ $(function(){
    $("#dialog-form").dialog({
       autoOpen: false,
       height: 200,
-      width: 400,
+      width: 450,
       modal: false,
       buttons: {
          Cancel: function() {
