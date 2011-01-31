@@ -4,7 +4,7 @@
 <%# show raw links : begin %>
 <div id="dialog-raw-links" class="package-dialog" title="Raw Links">
   <fieldset>
-    <label for="raw-links">Raw Links</label>
+    <label for="raw-links">Raw Links (just Ctrl + C)</label>
     <%= text_area_tag 'raw_links', to_raw_links(@links), :cols => 65, :rows => 6,
       :class => "area-wide ui-corner-all" %>
   </fieldset>
@@ -12,7 +12,7 @@
 <%# show raw links : end %>
 
 <div class="ui-widget-header ui-corner-all" style="padding: 0pt 10px;">
-  <p class="title"><%= h @package.description %></p>
+  <p class="package"><%= h @package.description %></p>
 </div>
 <br/>
 <div id="package_links">
@@ -44,7 +44,7 @@
   <% form_tag url_for(:action => "append_link"), :id => "app-link", :remote => true do %>
     <fieldset>
       <label for="link">Link (url)</label>
-      <%= text_field 'link', 'url', :size => 40, :class => "text ui-widget ui-corner-all" %>
+      <%= text_field 'link', 'url', :size => 50, :class => "text ui-widget ui-corner-all" %>
       <%= hidden_field_tag 'package_id', @package.id %>
     </fieldset>
   <% end %>

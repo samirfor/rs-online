@@ -1,9 +1,9 @@
 /* 
     Document   : style
     Created on : 01/02/2010, 13:22:00
-    Author     : madmac
+    Author     : atila camurca
     Description:
-        Purpose of the stylesheet follows.
+        default css for every page.
 */
 
 /* 
@@ -60,7 +60,8 @@ a img {
 
 #wrapper {
 	width: 96%;
-	margin: 0 auto;
+	margin: 4px auto;
+   background: #fff;
 	border: 10px solid #FFFFFF;
 }
 
@@ -68,8 +69,9 @@ a img {
 
 #header {
 	width: 100%;
-	height: 100px;
+	height: 80px;
 	margin: 0px auto;
+   background: #242323;
 }
 
 #header a {
@@ -92,7 +94,7 @@ a img {
 }
 
 #logo h1 {
-	padding: 25px 0px 0px 0px;
+	padding: 15px 0px 0px 0px;
 }
 
 /* Menu */
@@ -103,14 +105,15 @@ a img {
 
 #menu ul {
 	margin: 0px;
-	padding: 49px 0px 0px 0px;
+	padding: 39px 0px 0px 0px;
 	list-style: none;
 	line-height: normal;
 }
 
 #menu li {
 	float: left;
-	margin: 0px;
+	margin: 2px;
+   height: 28px;
 }
 
 #menu a {
@@ -120,12 +123,14 @@ a img {
 }
 
 #menu a:hover {
-	text-decoration: underline;
+/*	text-decoration: underline;*/
+   color: #a02c2c;
+   font-weight: bold;
 }
 
-#menu .active {
+/*#menu .active {
 	background: #404040;
-}
+}*/
 
 #menu .active a {
 	background: url(../images/img02.jpg) no-repeat 100% -40px;
@@ -159,6 +164,13 @@ a img {
 
 .post .title {
 	margin: 0px;
+/*	background: url('../images/packages/box.png') no-repeat left;*/
+	padding: 7px 25px;
+	font-size: 1.2em;
+}
+
+.post .package {
+   margin: 0px;
 	background: url('../images/packages/box.png') no-repeat left;
 	padding: 7px 25px;
 	font-size: 1.2em;
@@ -343,3 +355,11 @@ input.smallText { margin-bottom:3px; width:18%; padding: .4em; }
 select.text { margin-bottom:3px; width:70%; padding: .4em; }
 
 .post table select { margin-bottom:3px; width:70%; padding: .4em; }
+
+/*#menu .active
+{ border: 1px solid #777777;
+  background: #111111 url(images/ui-bg_glass_40_111111_1x400.png) 50% 50% repeat-x;
+  font-weight: normal; color: #e3e3e3;
+}*/
+#menu li
+{ border: 1px solid #777777; background: #111111 url('rsonline-ui/images/menu-bg.png') repeat-x; font-weight: normal; color: #e3e3e3; }

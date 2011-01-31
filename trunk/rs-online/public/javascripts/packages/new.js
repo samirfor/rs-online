@@ -11,5 +11,16 @@ $(function(){
    $("#priorities").buttonset();
    $("#package_use_ip").button();
 
+   $('#bClear').button({
+      icons: {
+         primary: 'ui-icon-trash'
+      }
+   });
+   $('#bSubmit').button({
+      icons: {
+         primary: 'ui-icon-plusthick'
+      }
+   });
+   $(".form-buttons").buttonset();
    //$("input[type=text]:first").focus();
 });

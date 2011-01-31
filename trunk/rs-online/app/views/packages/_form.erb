@@ -54,8 +54,13 @@
     </tr>
     <tr>
       <td align="right" colspan="2">
-        <input type="reset" value="Clear" class="def_button ui-state-default ui-corner-all"/>
-        <%= f.submit 'Create', :class => "def_button ui-state-default ui-corner-all" %>
+        <div  class="ui-widget-content ui-corner-all" style="padding: 10px 4px;">
+          <span class="form-buttons">
+            <button type="reset" id="bClear" class="">Clear</button>
+            <button type="submit" id="bSubmit">Create</button>
+            <%#= f.submit 'Create' %>
+          </span>
+        </div>
       </td>
     </tr>
   </table>
