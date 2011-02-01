@@ -4,13 +4,6 @@ class CreatePriorities < ActiveRecord::Migration
 			t.column :level, :string, :unique => true
 			t.timestamps
 		end
-
-		# default priorities
-		Priority.create :level => "none"
-		Priority.create :level => "low"
-		Priority.create :level => "normal"
-		Priority.create :level => "high"
-		Priority.create :level => "very high"
   end
 
   def self.down

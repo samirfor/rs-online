@@ -1,9 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :abouts
+
   map.resources :histories
 
   map.resources :packages
 
   map.log 'app/log', :controller => 'histories', :action => 'index'
+  
+  map.about_us 'about/us', :controller => 'abouts', :action => 'index'
 
   # The priority is based upon order of creation: first created -> highest priority.
 
