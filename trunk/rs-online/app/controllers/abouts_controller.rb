@@ -1,4 +1,7 @@
 class AboutsController < ApplicationController
+
+  layout 'default'
+
   # GET /abouts
   # GET /abouts.xml
   def index
@@ -12,6 +15,7 @@ class AboutsController < ApplicationController
 
   # GET /abouts/1
   # GET /abouts/1.xml
+  # _deprecate_
   def show
     @about = About.find(params[:id])
 
@@ -73,6 +77,7 @@ class AboutsController < ApplicationController
 
   # DELETE /abouts/1
   # DELETE /abouts/1.xml
+  # _deprecate_
   def destroy
     @about = About.find(params[:id])
     @about.destroy

@@ -6,7 +6,7 @@ class CreateAbouts < ActiveRecord::Migration
       t.string :email
       t.string :twitter
       t.string :website
-
+      t.string :url_photo
       t.timestamps
     end
   end

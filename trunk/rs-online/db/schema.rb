@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20110201153251) do
     t.string   "email"
     t.string   "twitter"
     t.string   "website"
+    t.string   "url_photo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20110201153251) do
 
   create_table "links", :force => true do |t|
     t.string   "url",           :null => false
+    t.string   "filename"
     t.boolean  "completed"
     t.float    "size"
     t.datetime "date_started"

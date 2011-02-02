@@ -1,28 +1,36 @@
-<h1>Listing abouts</h1>
+<div class="ui-widget-header ui-corner-all" style="padding: 0pt 10px;">
+  <p class="package">About Us</p>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Bio</th>
-    <th>Email</th>
-    <th>Twitter</th>
-    <th>Website</th>
-  </tr>
+<br/>
 
-<% @abouts.each do |about| %>
-  <tr>
-    <td><%=h about.name %></td>
-    <td><%=h about.bio %></td>
-    <td><%=h about.email %></td>
-    <td><%=h about.twitter %></td>
-    <td><%=h about.website %></td>
-    <td><%= link_to 'Show', about %></td>
-    <td><%= link_to 'Edit', edit_about_path(about) %></td>
-    <td><%= link_to 'Destroy', about, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div class="ui-widget-content ui-corner-all">
+  <%# shuffle para não aparecer sempre do mesmo jeito ;D %>
+  <% @abouts.shuffle.each do |about| %>
+  <table border="0" class="about_us" cellspacing="5">
+    <tr>
+      <td rowspan="6"
+          class="td_photo ui-corner-all">
+        <%= image_tag about.url_photo, :class => "about_us_photo ui-corner-all" %>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Name</b>:<br/><%=h about.name %></td>
+    </tr>
+    <tr>
+      <td><b>Bio</b>:<br/><%=h about.bio %></td>
+    </tr>
+    <tr>
+      <td><b>Twitter</b>:<br/><%=h about.twitter %></td>
+    </tr>
+    <tr>
+      <td><b>Website</b>:<br/><%=h about.website %></td>
+    </tr>
+    <tr>
+      <td><b>E-mail</b>:<br/><%=h about.email %></td>
+    </tr>
+  </table>
+  <% end %>
+</div>
 
-<br />
-
-<%= link_to 'New about', new_about_path %>
+<%#= link_to 'New about', new_about_path %>
