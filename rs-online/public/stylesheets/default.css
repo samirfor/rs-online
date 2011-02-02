@@ -363,3 +363,25 @@ select.text { margin-bottom:3px; width:70%; padding: .4em; }
 }*/
 #menu li
 { border: 1px solid #777777; background: #111111 url('rsonline-ui/images/menu-bg.png') repeat-x; font-weight: normal; color: #e3e3e3; }
+
+/* about us */
+.about_us td {
+   height: 38px;
+}
+
+.about_us_photo {
+   height: 128px;
+   width: 128px;
+   background-color: #fff;
+   padding: 12px;
+   margin: 12px;
+}
+
+.td_photo {
+/*   border-left: 0px;
+   border-top: 0px;
+   border-bottom: 0px;
+   border-right: 1px #aaa solid;*/
+   background: #f3d8d8 url(rsonline-ui/images/ui-bg_diagonals-thick_75_f3d8d8_40x40.png) 50% 50% repeat;
+   margin: 6px;
+}
