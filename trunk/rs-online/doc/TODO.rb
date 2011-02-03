@@ -12,3 +12,4 @@
 # [         ] | TODO: verificar se todos os links foram salvos corretamente, se não mostrar erro!
 # [         ] | TODO: na função que encurta as urls, retornar outro objeto, pois está modificando as urls.
 # [         ] | _DONE_: criar dialog com todos os links em textarea, para melhor copiar.
+# [         ] | TODO: criar arquivo de i18n (internacionalização). config/locales/pt_BR.yml
