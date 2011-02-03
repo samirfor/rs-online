@@ -9,18 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110201153251) do
-
-  create_table "abouts", :force => true do |t|
-    t.string   "name",       :null => false
-    t.text     "bio"
-    t.string   "email"
-    t.string   "twitter"
-    t.string   "website"
-    t.string   "url_photo"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110118214710) do
 
   create_table "histories", :force => true do |t|
     t.integer  "process"
