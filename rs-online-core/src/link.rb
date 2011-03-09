@@ -22,7 +22,7 @@ class Link
     @max_tentativas = 10
     @completado = false
     @tamanho = 0
-    @id_status = nil
+    @id_status = Status::AGUARDANDO
     @data_inicio = nil
     @data_fim = nil
     @testado = false
@@ -82,19 +82,20 @@ a_params = {
 
       # FIXME testar link update_db
       # DEPRECATED
-      sql = "UPDATE links SET "
-      @tamanho ? sql += "size = '#{@tamanho}', " : sql += "size = NULL, "
-      @testado != nil ? sql += "tested = '#{@testado}', " : sql += "tested = DEFAULT, "
-      @completado != nil ? sql += "completed = '#{@completado}', " : sql += "completed = DEFAULT, "
-      # FIXME: error ao realizar update
-      #@data_inicio ? sql += "date_started = '#{StrTime.timestamp(@data_inicio)}', " : sql += "date_started = NULL, "
-      @data_inicio ? sql += "date_started = '#{@data_inicio}', " : sql += "date_started = NULL, "
-      # FIXME: error ao realizar update
-      #@data_fim ? sql += "date_finished = '#{StrTime.timestamp(@data_fim)}', " : sql += "date_finished = NULL, "
-      @data_fim ? sql += "date_finished = '#{@data_fim}', " : sql += "date_finished = NULL, "
-      @filename ? sql += "filename = '#{@filename}', " : sql += "filename = NULL, "
-      sql += "status_id = ? WHERE id = ? "
-      Banco.instance.db_connect.do(sql, @id_status, @id_link)
+#      sql = "UPDATE links SET "
+#      @tamanho ? sql += "size = '#{@tamanho}', " : sql += "size = NULL, "
+#      @testado != nil ? sql += "tested = '#{@testado}', " : sql += "tested = DEFAULT, "
+#      @completado != nil ? sql += "completed = '#{@completado}', " : sql += "completed = DEFAULT, "
+#      # FIXME: error ao realizar update
+#      #@data_inicio ? sql += "date_started = '#{StrTime.timestamp(@data_inicio)}', " : sql += "date_started = NULL, "
+#      @data_inicio ? sql += "date_started = '#{@data_inicio}', " : sql += "date_started = NULL, "
+#      # FIXME: error ao realizar update
+#      #@data_fim ? sql += "date_finished = '#{StrTime.timestamp(@data_fim)}', " : sql += "date_finished = NULL, "
+#      @data_fim ? sql += "date_finished = '#{@data_fim}', " : sql += "date_finished = NULL, "
+#      @filename ? sql += "filename = '#{@filename}', " : sql += "filename = NULL, "
+#      sql += "status_id = ? WHERE id = ? "
+      sql = "update links set completed = ?, size = ?, date_started = ?, date_finished = ?, status_id = ?, tested = ? where id = ?"
+      Banco.instance.db_connect.do(sql, @completado, @tamanho, @data_inicio, @data_fim, @id_status, @testado, @id_link)
     rescue Exception => e
       Verbose.to_log("Erro ao atualizar link: #{e}")
       sleep 1
@@ -214,4 +215,5 @@ a_params = {
       return nil
     end
   end
+
 end

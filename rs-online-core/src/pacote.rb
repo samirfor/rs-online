@@ -286,7 +286,7 @@ class Pacote
   testado boolean NOT NULL DEFAULT false,
   filename character varying(200),
 =end
-    sql = "SELECT l.id as id_link, l.package_id, l.url, l.completed, l.size, \
+    sql = "SELECT l.id, l.package_id, l.url, l.completed, l.size, \
     l.status_id, l.date_started, l.date_finished, l.tested \
     FROM packages p, links l \
     WHERE l.package_id = p.id AND p.id = ? "

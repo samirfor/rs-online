@@ -239,7 +239,7 @@ def run
       unless pacote.select_count_remaining_links == 0
         pacote.problema = true
         pacote.update_db
-        Verbose.to_public "Pacote #{pacote.nome} está problema."
+        Verbose.to_public "Pacote #{pacote.nome} está com problema."
       end
       ## Fim Informações do download
     rescue Interrupt
