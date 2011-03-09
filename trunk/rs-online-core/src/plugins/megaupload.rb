@@ -12,6 +12,7 @@ class Megaupload < Link
     super
   end
 
+  # No longer needed
   def get_captcha
     begin
       expressao = @body.scan(/http:\/\/(\S+)\.megaupload.com\/gencap.php\?(\S+)\.gif/)[0]
@@ -32,6 +33,7 @@ class Megaupload < Link
       @captcha = nil
     end
   end
+  # No longer needed
   def get_captchacode
     begin
       @captchacode = @body.scan(/name=\"captchacode\" value=\"(.+)\">/)[0][0]
@@ -50,8 +52,6 @@ class Megaupload < Link
   end
   def get_size
     begin
-      #@tamanho = @body.scan(/font style=.*File size.*>(.+)<\/font/i)[0][0]
-      #<strong>File size:</strong> 175.21 MB<br />
       @tamanho = @body.scan(/<strong>File size:<\/strong> (.+)<br \/>/i)[0][0]
     rescue
       return nil
@@ -75,8 +75,6 @@ class Megaupload < Link
   end
   def get_filename
     begin
-      #@filename = @body.scan(/<font style=.*>Filename:<\/font> <font style=.*>(.*)<\/font><br>/)[0][0]
-      #<span class="down_txt1">File name:</span> <span class="down_txt2">the.big.bang.theory.s04e15.hdtv.xvid_fqm.avi</span><br />
       @filename = @body.scan(/<span class=".*>File name:<\/span> <span class=".*>(.*)<\/span><br \/>/)[0][0]
     rescue Exception => e
       Verbose.to_log("Erro download link: #{e.message}")
@@ -93,6 +91,7 @@ class Megaupload < Link
     end
     return @downloadlink
   end
+  # No longer needed
   def captcha_recognized?
     search = @body.scan(/post/i)
     if search == nil or search == []
@@ -102,7 +101,7 @@ class Megaupload < Link
     end
   end
 
-  # Método para reconhecimento do servidor de download
+  # Recognition of the download server
   def recognize_server
     begin
       servidor_host = @body.scan(/http:\/\/www(\d+)\.megaupload\.com\/files/i)[0][0]
@@ -191,7 +190,7 @@ class Megaupload < Link
       update_db
       
       @body = get_body
-      # Verificando erros
+      # Checking for errors
       if self.error?
         @id_status = Status::OFFLINE
         @testado = true
@@ -199,7 +198,7 @@ class Megaupload < Link
         return false
       end
 
-      ## Captura nome do arquivo
+      ## Fetching filename
       self.get_filename
       if @filename == nil
         Verbose.to_log('Não foi possível capturar o nome do arquivo.')
@@ -208,11 +207,11 @@ class Megaupload < Link
         update_db
       end
 
-      ## Captura tamanho do arquivo
+      ## Fetching size of file
       self.get_size
       if @tamanho == nil
         Verbose.to_log 'Não foi possível capturar o tamanho.'
-        # Download ainda pode ser feito.
+        # Can download yet.
       else
         Verbose.to_log "Tamanho #{@tamanho} KB ou #{sprintf "%.2f MB", @tamanho/1024.0}"
         @id_status = Status::ONLINE
@@ -261,14 +260,15 @@ class Megaupload < Link
         Verbose.to_debug("Tamanho #{@tamanho} KB ou #{sprintf("%.2f MB", @tamanho/1024.0)}")
       end
 
-      ## Captura captchacode
-      self.get_captchacode
-      if @captchacode == nil
-        Verbose.to_log('Não foi possível capturar o captchacode.')
-        false
-      else
-        Verbose.to_debug "captchacode reconhecido => #{@captchacode}"
-      end
+      # No longer needed
+#      ## Captura captchacode
+#      self.get_captchacode
+#      if @captchacode == nil
+#        Verbose.to_log('Não foi possível capturar o captchacode.')
+#        false
+#      else
+#        Verbose.to_debug "captchacode reconhecido => #{@captchacode}"
+#      end
 
       ## Captura megavar
       self.get_megavar
@@ -279,21 +279,22 @@ class Megaupload < Link
         Verbose.to_debug "megavar reconhecido => #{@megavar}"
       end
 
-      ## Captura captcha
-      self.get_captcha
-      if @captcha == nil or @captcha.size != 4
-        Verbose.to_log('Não foi possível capturar o captcha.')
-        false
-      else
-        Verbose.to_log "Captcha reconhecido => #{@captcha}"
-      end
+      # No longer needed
+#      ## Captura captcha
+#      self.get_captcha
+#      if @captcha == nil or @captcha.size != 4
+#        Verbose.to_log('Não foi possível capturar o captcha.')
+#        false
+#      else
+#        Verbose.to_log "Captcha reconhecido => #{@captcha}"
+#      end
 
       ## Requisição POST
       Verbose.to_debug('Enviando requisição de download...')
       hash = {
         "captchacode" => @captchacode,
-        "megavar" => @megavar,
-        "captcha" => @captcha
+        "megavar" => @megavar
+        #"captcha" => @captcha
       }
       post = HTTPClient.new
       response = post.post(@uri_parsed, hash)
@@ -304,12 +305,12 @@ class Megaupload < Link
       @body = response.body.content
       # Fim da requisição POST
 
-      if self.captcha_recognized?
-        Verbose.to_debug "Captcha está correto."
-      else
-        Verbose.to_log('ERRO: Captcha não está correto.')
-        false
-      end
+#      if self.captcha_recognized?
+#        Verbose.to_debug "Captcha está correto."
+#      else
+#        Verbose.to_log('ERRO: Captcha não está correto.')
+#        false
+#      end
 
       ## Captura link do download
       self.get_downloadlink
