@@ -8,4 +8,5 @@ class Package < ActiveRecord::Base
   # relationships
   belongs_to :priority
   has_many :links
+  
 end

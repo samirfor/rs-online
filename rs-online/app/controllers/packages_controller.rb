@@ -29,7 +29,7 @@ class PackagesController < ApplicationController
   # GET /packages/new.xml
   def new
     @package = Package.new
-    @priority = Priority.find(:all)#.collect { |p| [p.level, p.id]}
+    @priority = Priority.find(:all)
     #logger.debug @priority[0]
     respond_to do |format|
       format.html # new.html.erb
@@ -102,7 +102,6 @@ class PackagesController < ApplicationController
 
   # append link to a package
   def append_link
-    logger.debug "chamou a função?"
     url = params[:link]
     @link = Link.new()
     @link.url = url[:url]
