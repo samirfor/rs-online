@@ -1,0 +1,11 @@
+module Status
+  BAIXADO = 1
+  OFFLINE = 2
+  ONLINE = 3
+  BAIXANDO = 4
+  AGUARDANDO = 5
+  INTERROMPIDO = 6
+  TENTANDO = 7
+  TESTANDO = 8
+  ERRO = 9
+end
