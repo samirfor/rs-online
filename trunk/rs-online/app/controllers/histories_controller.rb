@@ -5,7 +5,8 @@ class HistoriesController < ApplicationController
   # GET /histories
   # GET /histories.xml
   def index
-    @histories = History.all
+    #@histories = History.all
+    @histories = History.find( :all, :limit => 100, :order => "id DESC" )
 
     respond_to do |format|
       format.html # index.html.erb
