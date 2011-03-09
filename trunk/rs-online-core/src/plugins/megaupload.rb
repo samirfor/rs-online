@@ -42,6 +42,7 @@ class Megaupload < Link
     end
     return @captchacode
   end
+
   def get_megavar
     begin
       @megavar = @body.scan(/name=\"megavar\" value=\"(.+)\">/)[0][0]
@@ -50,6 +51,7 @@ class Megaupload < Link
     end
     return @megavar
   end
+
   def get_size
     begin
       @tamanho = @body.scan(/<strong>File size:<\/strong> (.+)<br \/>/i)[0][0]
@@ -62,6 +64,7 @@ class Megaupload < Link
     end
     return @tamanho
   end
+
   def get_countdown
     begin
       @waittime = @body.scan(/count=(\d+);/)[0][0]
@@ -73,6 +76,7 @@ class Megaupload < Link
     end
     @waittime = @waittime.to_i
   end
+
   def get_filename
     begin
       @filename = @body.scan(/<span class=".*>File name:<\/span> <span class=".*>(.*)<\/span><br \/>/)[0][0]
@@ -83,9 +87,10 @@ class Megaupload < Link
     @filename = nil if @filename == []
     @filename
   end
+
   def get_downloadlink
     begin
-      @downloadlink = @body.scan(/downloadlink.*href=\"(.*)\" onclick/i)[0][0]
+      @downloadlink = @body.scan(/downloadlink.*href=\"(.*)\" class/i)[0][0]
     rescue
       return nil
     end
@@ -116,6 +121,7 @@ class Megaupload < Link
     Verbose.to_debug("Servidor www#{servidor_host}.megaupload.com identificado.")
     servidor_host.to_i
   end
+
   def regex string
     expressao = nil
     expressao = @body.scan(/#{string}/i)[0]
@@ -125,6 +131,7 @@ class Megaupload < Link
       return true
     end
   end
+
   def invalid
     if regex("invalid link")
       Verbose.to_log("Link inválido reconhecido pelo MU.")
@@ -133,6 +140,7 @@ class Megaupload < Link
       return false
     end
   end
+
   def deleted
     if regex("The file has been deleted because it was violating")
       Verbose.to_log("Este arquivo foi deletado porque violou os Termos de Serviço do MU.")
@@ -141,6 +149,7 @@ class Megaupload < Link
       return false
     end
   end
+
   def temp_unavaliable
     if regex("The file you are trying to access is temporarily") or \
         regex("No htmlCode read") or \
@@ -151,6 +160,7 @@ class Megaupload < Link
       return false
     end
   end
+
   def ip_block
     if regex("A temporary access restriction is place") or \
         regex("We have detected an elevated") or \
@@ -166,6 +176,7 @@ class Megaupload < Link
       Core.contador(@waittime, "Aguardando %Hh %Mm %Ss.")
     end
   end
+
   def big_files
     if regex("trying to download is larger than")
       Verbose.to_log("MU: Arquivos acima de 1GB precisam de conta premium.")
@@ -174,6 +185,7 @@ class Megaupload < Link
       return false
     end
   end
+
   def error?
     if temp_unavaliable or deleted or invalid or big_files
       true
@@ -181,6 +193,7 @@ class Megaupload < Link
       false
     end
   end
+
   def test
     begin      
       Verbose.to_log "Testando link: #{@link} | Tentativa #{@tentativas} de #{@max_tentativas}."
@@ -230,6 +243,7 @@ class Megaupload < Link
       raise
     end
   end
+  
   def get_ticket
     begin
       Verbose.to_log("Tentando baixar o link: #{@link} | Tentativa #{@tentativas} de #{@max_tentativas}.")
@@ -359,4 +373,5 @@ class Megaupload < Link
       raise
     end
   end
+  
 end

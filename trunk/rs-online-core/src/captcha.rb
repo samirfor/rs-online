@@ -1,6 +1,6 @@
 
 # Require GOCR and WGET. In Debian based distros: 
-# $apt-get install wget tesseract-ocr
+# ~:# apt-get install wget tesseract-ocr
 
 module Captcha
 
