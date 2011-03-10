@@ -17,7 +17,7 @@ class PackagesController < ApplicationController
   # GET /packages/1.xml
   def show
     @package = Package.find(params[:id])
-    @links = Link.find(:all, :conditions => ["package_id = ?", @package.id])
+    @links = Link.find(:all, :joins => :status, :conditions => ["package_id = ?", @package.id])
 
     respond_to do |format|
       format.html # show.html.erb

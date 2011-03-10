@@ -8,6 +8,12 @@ class Link < ActiveRecord::Base
 
   def interval
     # TODO: retorna o intervalo entre os downloads
-    1
+    begin
+      time = Time.local(0) + (date_finished - date_started)
+      time.strftime("%H:%M:%S")
+    rescue Exception => e
+      " --- "
+    end
   end
+  
 end
