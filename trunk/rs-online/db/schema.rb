@@ -19,13 +19,14 @@ ActiveRecord::Schema.define(:version => 20110118214710) do
   end
 
   create_table "links", :force => true do |t|
-    t.string   "url",           :null => false
+    t.string   "url",                          :null => false
     t.string   "filename"
     t.boolean  "completed"
     t.float    "size"
     t.datetime "date_started"
     t.datetime "date_finished"
-    t.integer  "package_id",    :null => false
+    t.integer  "package_id",                   :null => false
+    t.integer  "status_id",     :default => 5, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

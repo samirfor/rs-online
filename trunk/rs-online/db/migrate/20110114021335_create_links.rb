@@ -8,6 +8,7 @@ class CreateLinks < ActiveRecord::Migration
       t.column :date_started, :timestamp
       t.column :date_finished, :timestamp
       t.column :package_id, :integer, :null => false
+      t.column :status_id, :integer, :null => false, :default => "5"
       t.timestamps
     end
   end
