@@ -7,6 +7,6 @@ $(function(){
    $('#example').dataTable({
       "bJQueryUI": true,
       "sPaginationType": "full_numbers",
-      "aaSorting": [ [0, 'asc'] ]
+      "aaSorting": [ [0, 'desc'] ]
    });
 });

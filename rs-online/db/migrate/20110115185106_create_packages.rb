@@ -11,11 +11,12 @@ class CreatePackages < ActiveRecord::Migration
       t.column :date_finished, :timestamp
       t.column :pass_phrase, :string
       t.column :priority_id, :integer, :null => false
-      #t.column :source, :string
       t.column :url_source, :string
       t.column :use_ip, :boolean
+      t.column :size, :decimal, :default => 0, :precision => 10, :scale => 2
       t.timestamps
     end
+    #add_column :size, :decimal, :default => 0, :precision => 10, :scale => 2
   end
 
   def self.down
