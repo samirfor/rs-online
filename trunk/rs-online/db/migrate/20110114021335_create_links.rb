@@ -9,8 +9,10 @@ class CreateLinks < ActiveRecord::Migration
       t.column :date_finished, :timestamp
       t.column :package_id, :integer, :null => false
       t.column :status_id, :integer, :null => false, :default => "5"
+      t.column :tested, :boolean, :default => false
       t.timestamps
     end
+    #add_column :status_id, :integer, :null => false, :default => "5"
   end
 
   def self.down

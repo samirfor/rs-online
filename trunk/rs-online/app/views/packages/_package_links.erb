@@ -15,7 +15,14 @@
       <% @links.each do |link| %>
         <tr>
           <%# TODO: por apenas o filename e na chain.png o link real. %>
-          <td><%= link_to image_tag("chain.png"), link.url %> <%= shorten link.url %></td>
+          <%
+            if link.filename == nil or link.filename == ""
+              description = shorten link.url
+            else
+              description = link.filename
+            end
+          %>
+          <td><%= link_to image_tag("chain.png"), link.url %> <%= description %></td>
           <td><%= h format_megabytes(link.size) %></td>
           <td><%= h format_timestamp(link.date_started) %></td>
           <td><%= h format_timestamp(link.date_finished) %></td>

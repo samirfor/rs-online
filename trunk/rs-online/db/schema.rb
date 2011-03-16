@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20110118214710) do
   end
 
   create_table "packages", :force => true do |t|
-    t.string   "description",   :null => false
+    t.string   "description",                                                   :null => false
     t.text     "comment"
     t.boolean  "completed"
     t.boolean  "show"
@@ -41,9 +41,10 @@ ActiveRecord::Schema.define(:version => 20110118214710) do
     t.datetime "date_started"
     t.datetime "date_finished"
     t.string   "pass_phrase"
-    t.integer  "priority_id",   :null => false
+    t.integer  "priority_id",                                                   :null => false
     t.string   "url_source"
     t.boolean  "use_ip"
+    t.decimal  "size",          :precision => 10, :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
