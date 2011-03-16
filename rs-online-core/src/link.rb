@@ -94,8 +94,8 @@ a_params = {
 #      @data_fim ? sql += "date_finished = '#{@data_fim}', " : sql += "date_finished = NULL, "
 #      @filename ? sql += "filename = '#{@filename}', " : sql += "filename = NULL, "
 #      sql += "status_id = ? WHERE id = ? "
-      sql = "update links set completed = ?, size = ?, date_started = ?, date_finished = ?, status_id = ?, tested = ? where id = ?"
-      Banco.instance.db_connect.do(sql, @completado, @tamanho, @data_inicio, @data_fim, @id_status, @testado, @id_link)
+      sql = "update links set completed = ?, size = ?, date_started = ?, date_finished = ?, status_id = ?, tested = ?, filename = ? where id = ?"
+      Banco.instance.db_connect.do(sql, @completado, @tamanho, @data_inicio, @data_fim, @id_status, @testado, @filename, @id_link)
     rescue Exception => e
       Verbose.to_log("Erro ao atualizar link: #{e}")
       sleep 1
@@ -216,4 +216,12 @@ a_params = {
     end
   end
 
+  def to_s
+    """
+    Link Details (for better debugging ... ;-):
+    [filename]: #{@filename}, [url]: #{@link}
+    [size]: #{@tamanho}, [tested]: #{@testado}, [status_id]: #{@id_status}
+    [date_started]: #{@data_inicio}, [date_finished]: #{@data_fim}
+    """
+  end
 end
