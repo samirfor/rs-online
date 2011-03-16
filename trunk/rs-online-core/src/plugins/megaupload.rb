@@ -79,7 +79,8 @@ class Megaupload < Link
 
   def get_filename
     begin
-      @filename = @body.scan(/<span class=".*>File name:<\/span> <span class=".*>(.*)<\/span><br \/>/)[0][0]
+      # TODO: verificar se método está retornando o valor correto, sempre da erro de maior que 255 caracteres.
+      @filename = @body.scan(/<span class=".*>.*:<\/span> <span class=".*>(.*)<\/span><br \/>/)[0][0]
     rescue Exception => e
       Verbose.to_log("Erro download link: #{e.message}")
       @filename = nil
@@ -195,6 +196,9 @@ class Megaupload < Link
   end
 
   def test
+    # TODO: quando falha todas as tentativas, sistema pára! :-( WTF?
+    return false if @tentativas >= @max_tentativas
+
     begin      
       Verbose.to_log "Testando link: #{@link} | Tentativa #{@tentativas} de #{@max_tentativas}."
       return false unless http_valid?
@@ -208,6 +212,7 @@ class Megaupload < Link
         @id_status = Status::OFFLINE
         @testado = true
         update_db
+        Verbose.to_log(to_s)
         return false
       end
 
@@ -216,7 +221,6 @@ class Megaupload < Link
       if @filename == nil
         Verbose.to_log('Não foi possível capturar o nome do arquivo.')
       else
-        Verbose.to_log("Nome do arquivo: #{@filename}")
         update_db
       end
 
@@ -231,6 +235,8 @@ class Megaupload < Link
         @testado = true
         update_db
       end
+      #Verbose.to_log("Descrição do link após testes:")
+      #Verbose.to_log(to_s)
       return true
     rescue Timeout::Error
       Verbose.to_log "Tempo de requisição esgotado. Tentando novamente."

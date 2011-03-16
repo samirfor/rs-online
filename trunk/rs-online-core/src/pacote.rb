@@ -289,7 +289,7 @@ class Pacote
     sql = "SELECT l.id, l.package_id, l.url, l.completed, l.size, \
     l.status_id, l.date_started, l.date_finished, l.tested \
     FROM packages p, links l \
-    WHERE l.package_id = p.id AND p.id = ? "
+    WHERE l.package_id = p.id AND p.id = ?  AND l.status_id <> 1"
     
     lista = Array.new
     link = nil
