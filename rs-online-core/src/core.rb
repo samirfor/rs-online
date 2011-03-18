@@ -232,7 +232,7 @@ def run
 
       ## Informações do download
       duracao = Time.local(0) + (pacote.data_fim - pacote.data_inicio)
-      evento = "Concluido o download do pacote #{pacote.nome}"
+      evento = "Concluido pacote #{pacote.nome}"
       evento += " em #{duracao.strftime("%Hh %Mm %Ss")} | "
       evento += "V. media = #{sprintf("%.2f KB/s", pacote.tamanho/(pacote.data_fim - pacote.data_inicio))}"
       Verbose.to_public(evento)
