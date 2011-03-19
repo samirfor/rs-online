@@ -34,10 +34,14 @@ require "verbose"
 #Usage
 def ajuda
   puts "::: RS-Online Beta :::\n"
-  puts ">>> Criado por Samir <samirfor@gmail.com>\n"
-  puts ">>> Incrementado por Átila <camurca.home@gmail.com>\n"
+  puts ">>> Criado por Samir C. Costa <samirfor@gmail.com>\n"
+  puts ">>> Incrementado por Átila Camurça <camurca.home@gmail.com>\n"
   puts "Banco de Dados PostgreSQL é necessário para rodar o programa."
   puts "Local da aplicação: #{File.dirname($0)}"
+  puts "Parâmetros disponíveis:"
+  puts "\ttwitter - ativa verbose twitter"
+  puts "\tsms - ativa verbose sms (dev)"
+  puts "\tdebug - ativa verbose para debugar"
 end
 
 # Retorna onde o caminho completo de onde os downloads serão salvos.

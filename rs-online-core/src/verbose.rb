@@ -13,6 +13,7 @@ module Verbose
     ARGV.each do |arg|
       if arg == "debug"
         puts text
+        break
       end
     end
   end
@@ -23,6 +24,7 @@ module Verbose
         Thread.new {
           TwitterBot.tweet(msg)
         }
+        break
       end
     end
   end
@@ -36,6 +38,7 @@ module Verbose
           #marcelo = Celular.new(85, 87678424)
           SMS.enviar(msg, atila)
         }
+        break
       end
     end
   end

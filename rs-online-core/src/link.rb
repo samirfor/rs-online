@@ -35,7 +35,6 @@ class Link
   def get_body
     begin
       http = HTTPClient.new
-      #    http.timeout_scheduler 15 #segundos
       begin
         response = http.get(@uri_parsed)
         unless response.header.status_code == 200

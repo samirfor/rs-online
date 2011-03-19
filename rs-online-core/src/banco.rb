@@ -64,8 +64,6 @@ class Banco
     array = rst.fetch_all
     rst.finish
     Banco.instance.db_disconnect
-    p array
-    puts array.class
     array.sort
   end
 
